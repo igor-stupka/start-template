@@ -1,0 +1,18 @@
+@import "vars";
+@import "stylereset";
+@import "fonts";
+@import "plaseholder";
+
+body {
+	color: $text; 
+	background-color: #fff;
+	font-family: 'Roboto Regular';
+	font-size: 16px;
+}
+
+.container {
+	max-width: 1240px;
+}
+
+@import "modal";
+@import "media";
