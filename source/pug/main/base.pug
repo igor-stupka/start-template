@@ -1,0 +1,14 @@
+include ../config/config
+block  variables 
+
+doctype html
+html(lang=lang)
+	head
+		include ../includes/base/head
+	body
+		include ../includes/base/header
+		main
+			block content
+		include ../includes/base/footer
+		include ../includes/base/hidden
+		include ../includes/base/scripts
