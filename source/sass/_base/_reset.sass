@@ -1,7 +1,5 @@
 body, html
-	display: flex
-	flex-direction: column
-	justify-content: space-between
+	@include flex(column, space-between, stretch, nowrap, $inline: false)
 	font-family: $mainFont, sans-serif
 	font-size: 16px
 	min-height: 100vh
