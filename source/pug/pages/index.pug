@@ -4,4 +4,6 @@ block variables
 	-let title = 'Home'
 
 block content
-		include ../includes/p-index/p-index
+	-let aaa = ['hello', 'hola', 'bonjorno']
+	each item in aaa
+		section.section= `${item}, world!`
