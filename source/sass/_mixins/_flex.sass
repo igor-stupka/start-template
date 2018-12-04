@@ -1,9 +1,6 @@
-@mixin flex($direction, $justify, $align, $wrap, $inline: false)
-	@if $inline
-		display: inline-flex
-	@else
-		display: flex
-		align-items: $align
-		justify-content: $justify
-		flex-direction: $direction
-		flex-wrap: $wrap
+@mixin flex($direction, $justify, $align, $wrap)
+	display: flex
+	align-items: $align
+	justify-content: $justify
+	flex-direction: $direction
+	flex-wrap: $wrap

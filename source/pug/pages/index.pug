@@ -1,7 +1,10 @@
 extends ../main/base
 
 block variables
-	-let title = 'Home'
+	- let title = 'Home'
 
 block content
-		include ../includes/p-index/p-index
+		section 
+			h1 HELLO WORLD!!
+		each i in range(6, 27, 2)
+			.lol= i
