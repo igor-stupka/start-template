@@ -4,6 +4,7 @@ body, html
 	font-size: 16px
 	min-height: 100vh
 	width: 100%
+	color: $ctext
 
 *
 	box-sizing: border-box
@@ -11,20 +12,14 @@ body, html
 	margin: 0
 	padding: 0
 	border: none
+	outline: none
 	background: none
 	text-decoration: none
-	outline: none
-	
+
+@include placeholder($secondFont, 16px, $ctext)
+
 img
 	width: 100%
 
-*::-webkit-input-placeholder,
-*:-moz-placeholder,
-*::-moz-placeholder,
-*:-ms-input-placeholder 
-	font-family: $mainFont
-	font-size: 15px
-	color: #000
-	
 .hidden
 	display: none

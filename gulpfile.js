@@ -41,14 +41,14 @@ gulp.task('sass', function() {
 //PUG
 gulp.task('pug',  function() {
 	return gulp.src('source/pug/pages/**/*.pug')
-	.pipe(pug({
-		pretty: true
-	}))
-	.on("error", notify.onError({
-		message: "Error: <%= error.message %>",
-		title: "PUG ERROR"
-	}))
-  .pipe(gulp.dest('dist/'));
+		.pipe(pug({
+			pretty: true
+		}))
+		.on("error", notify.onError({
+			message: "Error: <%= error.message %>",
+			title: "PUG ERROR"
+		}))
+	  .pipe(gulp.dest('dist/'));
 });
 
 //JS
@@ -60,8 +60,8 @@ gulp.task('js', () =>
 		}))
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest('dist/js'))
-		.pipe(concat('main.min.js'))
 		.pipe(uglify())
+		.pipe(concat('main.min.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('dist/js'))
 );
