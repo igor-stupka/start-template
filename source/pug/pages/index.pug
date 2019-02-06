@@ -1,18 +1,8 @@
 extends ../main/base
 
 block variables
-	- let title = 'Home'
+	- let title = 'Main';
 
 block content
-		section 
-			h1 HELLO WORLD!!
-			each i in range(6, 27, 2)
-				.lol= i
-			-
-				let arr = ['hello', 'hola', 'bonjorno']
-			each hi in arr
-				h2= hi
-			input(type="text" placeholder="pryvit")
-			textarea(placeholder="pryvit")
-
-			
+	section
+		.container abc

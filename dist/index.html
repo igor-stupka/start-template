@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Start template - Home</title>
+    <title>NEW - Main</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="format-detection" content="telephone=no">
     <meta property="og:title" content="">
     <meta property="og:type" content="website">
     <meta property="og:description" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
-    <meta name="theme-color" content="#000">
-    <meta name="msapplication-navbutton-color" content="#000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
     <link rel="apple-touch-icon" sizes="192x192" href="img/favicons/webclip.jpg">
     <link rel="icon" type="image/png" sizes="192x192" href="img/favicons/webclip.jpg">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicons/favicon.jpg">
+    <meta name="theme-color" content="#69d2e7">
+    <meta name="msapplication-navbutton-color" content="#69d2e7">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#69d2e7">
     <script>
       !function(e){"use strict";function t(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)};function n(t,n){return e.localStorage&&localStorage[t+"_content"]&&localStorage[t+"_file"]===n};function a(t,a){if(e.localStorage&&e.XMLHttpRequest)n(t,a)?o(localStorage[t+"_content"]):l(t,a);else{var s=r.createElement("link");s.href=a,s.id=t,s.rel="stylesheet",s.type="text/css",r.getElementsByTagName("head")[0].appendChild(s),r.cookie=t}}function l(e,t){var n=new XMLHttpRequest;n.open("GET",t,!0),n.onreadystatechange=function(){4===n.readyState&&200===n.status&&(o(n.responseText),localStorage[e+"_content"]=n.responseText,localStorage[e+"_file"]=t)},n.send()}function o(e){var t=r.createElement("style");t.setAttribute("type","text/css"),r.getElementsByTagName("head")[0].appendChild(t),t.styleSheet?t.styleSheet.cssText=e:t.innerHTML=e}var r=e.document;e.loadCSS=function(e,t,n){var a,l=r.createElement("link");if(t)a=t;else{var o;o=r.querySelectorAll?r.querySelectorAll("style,link[rel=stylesheet],script"):(r.body||r.getElementsByTagName("head")[0]).childNodes,a=o[o.length-1]}var s=r.styleSheets;l.rel="stylesheet",l.href=e,l.media="only x",a.parentNode.insertBefore(l,t?a:a.nextSibling);var c=function(e){for(var t=l.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){c(e)})};return l.onloadcssdefined=c,c(function(){l.media=n||"all"}),l},e.loadLocalStorageCSS=function(l,o){n(l,o)||r.cookie.indexOf(l)>-1?a(l,o):t(e,"load",function(){a(l,o)})}}(this);
       
@@ -28,31 +27,16 @@
       <link rel="stylesheet" href="css/main.min.css">
     </noscript>
   </head>
-  <body>
-    <header class="page-header"></header>
-    <main>
-      <section> 
-        <h1>HELLO WORLD!!</h1>
-        <div class="lol">6</div>
-        <div class="lol">8</div>
-        <div class="lol">10</div>
-        <div class="lol">12</div>
-        <div class="lol">14</div>
-        <div class="lol">16</div>
-        <div class="lol">18</div>
-        <div class="lol">20</div>
-        <div class="lol">22</div>
-        <div class="lol">24</div>
-        <div class="lol">26</div>
-        <h2>hello</h2>
-        <h2>hola</h2>
-        <h2>bonjorno</h2>
-        <input type="text" placeholder="pryvit">
-        <textarea placeholder="pryvit"></textarea>
-      </section>
-    </main>
-    <footer class="page-footer"></footer>
-    <div class="hidden"></div>
-    <script src="js/main.min.js"></script>
+  <body id="body">
+    <header class="header">
+      <div class="container">123</div>
+    </header>
+    <section>
+      <div class="container">abc</div>
+    </section>
+    <footer class="footer">
+      <div class="container">123</div>
+    </footer>
+    <script src="js/main.js"></script>
   </body>
 </html>

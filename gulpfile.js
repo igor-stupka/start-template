@@ -4,8 +4,9 @@
 		sourcemaps     = require('gulp-sourcemaps'),
 		babel		   = require('gulp-babel'),
 		concat         = require('gulp-concat'),
-		uglify         = require('gulp-uglify'),
+		uglify         = require('gulp-uglify-es').default,
 		cleanCSS       = require('gulp-clean-css'),
+		wait           = require('gulp-wait'),
 		rename         = require('gulp-rename'),
 		autoprefixer   = require('gulp-autoprefixer'),
 		bourbon        = require('node-bourbon'),
@@ -18,18 +19,20 @@ gulp.task('browser-sync', function() {
 		server: {
 			baseDir: 'dist'
 		},
-		notify: true
+		notify: false
 	});
 });
 
 //SASS
 gulp.task('sass', function() {
 	return gulp.src('source/sass/*.sass')
+		.pipe(wait(500))
 		.pipe(sass({
 			includePaths: bourbon.includePaths
-		})).on("error", notify.onError({
-			message: "Error: <%= error.message %>",
-			title: "SASS ERROR"
+		}))
+		.on("error", notify.onError({
+			message: "SASS: <%= error.message %>",
+			title: "Error running something"
 		}))
 		.pipe(rename({suffix: '.min', prefix : ''}))
 		.pipe(autoprefixer(['last 15 versions']))
@@ -45,26 +48,30 @@ gulp.task('pug',  function() {
 			pretty: true
 		}))
 		.on("error", notify.onError({
-			message: "Error: <%= error.message %>",
-			title: "PUG ERROR"
-		}))
-	  .pipe(gulp.dest('dist/'));
+        	message: "PUG: <%= error.message %>",
+        	title: "Error running something"
+      	}))
+		.pipe(gulp.dest('dist/'));
 });
 
 //JS
-gulp.task('js', () =>
+gulp.task('js', function() {
 	gulp.src('source/js/**/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(babel({
 			presets: ['@babel/env']
 		}))
+		.on("error", notify.onError({
+        	message: "JS: <%= error.message %>",
+        	title: "Error running something"
+      	}))
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest('dist/js'))
 		.pipe(uglify())
 		.pipe(concat('main.min.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('dist/js'))
-);
+});
 
 //WATCH
 gulp.task('watch', ['pug', 'sass', 'js', 'browser-sync'], function() {

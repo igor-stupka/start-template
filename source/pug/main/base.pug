@@ -3,16 +3,14 @@ include ../mixins/index
 include ../functions/index
 include ../variables/index
 
-block  variables 
+block variables 
 
 doctype html
 html(lang=lang)
 	head
 		include ../includes/head
-	body
+	body#body
 		include ../includes/header
-		main
-			block content
+		block content
 		include ../includes/footer
-		include ../includes/hidden
 		include ../includes/scripts
