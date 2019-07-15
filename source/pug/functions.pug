@@ -4,9 +4,8 @@
 			stop = start;
 			start = 0;
 		}
-
 		if (typeof step == 'undefined') step = 1;
-
+		
 		if ((step > 0 && start >= stop) || (step < 0 && start <= stop)) return [];
 
 		let result = [];

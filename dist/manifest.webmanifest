@@ -1,0 +1,20 @@
+{
+	"name": "New Project",
+	"short_name": "New",
+	"start_url": "/",
+	"background_color": "#ffffff",
+	"theme_color": "#cecece",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "img/icons/favicon.jpg",
+			"sizes": "32x32",
+			"type": "image/jpeg"
+		},
+		{
+			"src": "img/icons/webclip.jpg",
+			"sizes": "192x192",
+			"type": "image/jpeg"
+		}
+	]
+}
