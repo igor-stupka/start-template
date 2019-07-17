@@ -12,6 +12,7 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "browser-sync": "^2.26.7",
+    "del": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
@@ -19,17 +20,20 @@
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.4.0",
     "gulp-pug": "^4.0.1",
-    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^2.0.0",
     "gulp-uglify-es": "^1.0.4",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "node-sass": "^4.12.0"
   },
   "dependencies": {
     "critical": "^1.3.4",
+    "gulp-cache": "^1.1.2",
     "gulp-dom": "^1.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-wait": "0.0.2"
+    "gulp-wait": "0.0.2",
+    "imagemin-zopfli": "^6.0.0"
   }
 }

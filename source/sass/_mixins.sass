@@ -6,7 +6,6 @@
 	@if $wrap
 		flex-wrap: $wrap
 
-
 @mixin responsive-font($responsive, $min, $max: false)
 	$responsive-unitless: $responsive / ($responsive - $responsive + 1)
 	$dimension: if(unit($responsive) == 'vh', 'height', 'width')
@@ -18,11 +17,8 @@
 		$max-breakpoint: $max / $responsive-unitless * 100
 		@media (min-#{$dimension}: #{$max-breakpoint})
 			font-size: $max
-
 	font-size: $responsive
  
-
-
 @mixin centerer($horizontal: true, $vertical: true)
 	position: absolute
 	@if ($horizontal and $vertical)
@@ -36,8 +32,6 @@
 		top: 50%
 		transform: translate(0, -50%)
 
-
-
 @mixin triangle($direction, $color: currentcolor, $size: 1em)
 	@if not index(top right bottom left, $direction)
 		@error "Direction must be either `top`, `right`, `bottom` or `left`."
@@ -46,33 +40,10 @@
 	content: ''
 	z-index: 2
 	border-#{$direction}: ($size * 1.5) solid $color
-
 	$perpendicular-borders: $size solid transparent
-
 	@if $direction == top or $direction == bottom
 		border-left:   $perpendicular-borders
 		border-right:  $perpendicular-borders
 	@else if $direction == right or $direction == left
 		border-bottom: $perpendicular-borders
 		border-top:    $perpendicular-borders
-
-@mixin placeholder($font-family, $font-size, $color)
-	&::-webkit-input-placeholder
-		font-family: $font-family
-		font-size: $font-size
-		color: $color
-		
-	&:-moz-placeholder
-		font-family: $font-family
-		font-size: $font-size
-		color: $color
-
-	&::-moz-placeholder
-		font-family: $font-family
-		font-size: $font-size
-		color: $color
-
-	&:-ms-input-placeholder 
-		font-family: $font-family
-		font-size: $font-size
-		color: $color

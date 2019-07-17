@@ -1,4 +1,3 @@
-// define in the beginning our name for the cache and define an array of URL’s we want to cache.
 const CACHE_NAME = 'mysite-1';
 const URLS_CACHE_ONLY = [
     "/fonts/montserrat-v13-cyrillic_latin-500.woff2",
@@ -64,8 +63,16 @@ const getByNetworkFallingBackByCache = (request) => {
         return fetch(request).then((networkResponse) => {
             cache.put(request, networkResponse.clone()); // If it succeeds, we update the cache with the newest content
             return networkResponse;
-        }).catch(() => { //If we are offline or the server, we will check if this content is inside the cache. When this is the case, we return the content from the cache 
-            console.log('You are in offline mode. The data may be outdated.') // and show a warning that the data may be outdated.
+        }).catch(() => { //If we are offline or the server, we will check if this content is inside the cache. When this is the case, we return the content from the cache
+
+            let str = 'You are in offline mode. The data may be outdated.';
+            let style = ['padding: 1rem;',
+                'background: linear-gradient( gold, orangered);',
+                'text-shadow: 0 2px orangered;',
+                'font: 1.3rem/3 Georgia;',
+                'color: white;'].join('');
+
+            console.log ( '%c%s', style, str ); // and show a warning that the data may be outdated';
             return caches.match(request);
         });
     });
