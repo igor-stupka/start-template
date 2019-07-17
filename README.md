@@ -1,10 +1,10 @@
-<h1>AwesomeStartTemplate</h1>
+<h1>Awesome Start Template</h1>
 
 <p>Lightweight and optimized startup HTML5 template, based on Gulp.</p>
 
-<p><strong>AwesomeStartTemplate</strong> - lightweight and optimized startup HTML5 template with <strong>Gulp 4</strong>, <strong>PUG</strong>, <strong>SASS</strong>, <strong>BrowserSync</strong>, <strong>Autoprefixer</strong>, <strong>Babel</strong>, <strong>Clean-CSS</strong>. It uses best practices for optimizing performance. Contains a <strong>.htaccess</strong> and  <strong>Sevice worker</strong> files for resources caching (images, fonts, HTML, CSS, JS, etc).</p>
+<p><strong>Awesome Start Template</strong> - lightweight and optimized startup HTML5 template with <strong>Gulp 4</strong>, <strong>PUG</strong>, <strong>SASS</strong>, <strong>BrowserSync</strong>, <strong>Autoprefixer</strong>, <strong>Babel</strong>, <strong>Clean-CSS</strong>. It uses best practices for optimizing performance. Contains a <strong>.htaccess</strong> and  <strong>Sevice worker</strong> files for resources caching (images, fonts, HTML, CSS, JS, etc).</p>
 
-<h2>How to use AwesomeStartTemplate</h2>
+<h2>How to use Awesome Start Template</h2>
 
 <pre>git clone https://github.com/igor-stupka/start-template.git</pre>
 
