@@ -90,7 +90,7 @@ gulp.task('default', gulp.parallel('pug', 'sass', 'js', 'browser-sync', 'watch')
 gulp.task('imageMin', function() {
 	return gulp.src(['source/img/**/*'])
 		.pipe(imagemin([
-			//png
+			// PNG
 			imageminPngquant({
 				speed: 1,
 				quality: [0.95, 1] //lossy settings
@@ -99,12 +99,12 @@ gulp.task('imageMin', function() {
 				more: true
 				// iterations: 50 // very slow but more effective
 			}),
-			//gif
+			// GIF
 			imagemin.gifsicle({
 			    interlaced: true,
 			    optimizationLevel: 3
 			}),
-			//svg
+			// SVG
 			imagemin.svgo({
 				plugins: [{
 					removeViewBox: false
@@ -145,8 +145,8 @@ gulp.task('dom',  function() {
 gulp.task('selectors', function() {
 	return gulp.src(['dist/**/*.min.css', 'dist/**/*.html'])
 		.pipe(gs.run({
-			'css':  ['css'],                // run the css processor on .scss and .css files
-			'html': ['html']                // run the html processor on .haml files
+			'css':  ['css'],                // run the css processor on  .css files
+			'html': ['html']                // run the html processor on .html files
 		}, {
 			classes: ['hidden', 'active', 'opened'],   // ignore these class selectors,
 			ids: '*'                         // ignore all IDs

@@ -34,7 +34,6 @@
     "gulp-cache": "^1.1.2",
     "gulp-dom": "^1.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-wait": "0.0.2",
     "imagemin-zopfli": "^6.0.0"
   }
 }
