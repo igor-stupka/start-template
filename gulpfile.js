@@ -15,7 +15,8 @@ const   gulp                = require('gulp'),
 		imageminZopfli      = require('imagemin-zopfli'),
 		del                 = require('del'),
 		critical	        = require('critical'),
-		dom			        = require('gulp-dom');
+		dom			        = require('gulp-dom'),
+		gs		            = require('gulp-selectors');
 
 //BROWSER-SYNC
 	gulp.task('browser-sync', function() {
@@ -34,20 +35,21 @@ function bsReload(done) { browserSync.reload(); done(); };
 //SASS
 gulp.task('sass', function() {
 	return gulp.src('source/sass/*.sass')
+		.pipe(sass())
+		.pipe(gulp.dest('dist/css'))
 		.pipe(sass({outputStyle: 'compressed'}))
 		.pipe(concat('main.min.css'))
 		.pipe(autoprefixer({
 			grid: true,
 			overrideBrowserlist: ['last 10 versions']
 		}))
-		.pipe(gulp.dest('dist/css'))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('dist/css'))
 		.pipe(browserSync.stream());
 });
 
 //PUG
-gulp.task('pug',  function() {
+gulp.task('pug', function() {
 	return gulp.src('source/pug/pages/**/*.pug')
 		.pipe(pug({
 			pretty: true
@@ -83,12 +85,6 @@ gulp.task('watch', function() {
 //DEFAULT
 gulp.task('default', gulp.parallel('pug', 'sass', 'js', 'browser-sync', 'watch'));
 
-//HTML-MINIFUER
-gulp.task('htmlMin', () => {
-	return gulp.src('dist/*.html')
-		.pipe(htmlmin({ collapseWhitespace: true }))
-		.pipe(gulp.dest('dist'));
-});
 
 //IMAGE-MIN
 gulp.task('imageMin', function() {
@@ -130,10 +126,12 @@ gulp.task('imageMin', function() {
 gulp.task('clearImages', async () => {
 	return del(['dist/img/**/*']), { force: true }
 });
+
+// IMG
 gulp.task('img', gulp.series('clearImages', 'imageMin', bsReload));
 
 //DOM
-gulp.task('dom', function() {
+gulp.task('dom',  function() {
 	return gulp.src('./dist/*.html')
 		.pipe(dom(function() {
 			fillEmptyAttrs(this);
@@ -143,11 +141,24 @@ gulp.task('dom', function() {
 		.pipe(gulp.dest('./dist/'));
 });
 
+// SELECTORS
+gulp.task('selectors', function() {
+	return gulp.src(['dist/**/*.min.css', 'dist/**/*.html'])
+		.pipe(gs.run({
+			'css':  ['css'],                // run the css processor on .scss and .css files
+			'html': ['html']                // run the html processor on .haml files
+		}, {
+			classes: ['hidden', 'active', 'opened'],   // ignore these class selectors,
+			ids: '*'                         // ignore all IDs
+		}))
+		.pipe(gulp.dest('dist/'));
+});
+
 //CRITICAL-CSS
-gulp.task('critical', async () => {
+gulp.task('critical',  () => {
 	critical.generate({
-		base: './dist',
-		src: '/index.html',
+		base: 'dist/',
+		src: 'index.html',
 		css: ['dist/css/main.min.css'],
 		dimensions: [{
 			width: 320,
@@ -161,13 +172,22 @@ gulp.task('critical', async () => {
 		}],
 		dest: 'index.html',
 		inline: true,
-		minify: false,
-		extract: false
+		minify: true,
+		extract: true
 	});
 });
 
+
+
+//HTML-MINIFUER
+gulp.task('htmlMin', () => {
+	return gulp.src('dist/*.html')
+		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(gulp.dest('dist/'));
+});
+
 //BUILD
-gulp.task('build', gulp.series(gulp.parallel('sass', 'pug', 'js'), 'dom', 'htmlMin', 'critical', 'img'));
+gulp.task('build', gulp.series(gulp.parallel('sass', 'pug', 'js'), 'dom', 'htmlMin', 'selectors', 'critical', 'img'));
 
 // FILL EMPTY FIELDS BY PLACEHOLDER
 function fillEmptyAttrs(scope) {
@@ -190,16 +210,26 @@ function fillEmptyAttrs(scope) {
 // LEAVE PERSONAL SIGNATURE
 function leaveSignature(scope, element) {
 	const signature = `
-	       ,
-	     0/
-	    /7,
-	  .'(
-	'^ / >
-	  / < 
-	  \` 
-FRONTEND BY STUPKA IGOR
+			       ,
+			     0/
+			    /7,
+			  .'(
+			'^ / >
+			  / < 
+			  \` 
+		FRONTEND BY STUPKA IGOR
 
 `;
 	scope.querySelector(element).appendChild(scope.createComment(signature))
 }
 
+// GET CLASES MANE FROM CSS
+gulp.task('get-classes', function() {
+	return gulp.src('./dist/css/main.css')
+		.pipe(dom(function() {
+			fillEmptyAttrs(this);
+			leaveSignature(this, 'body');
+			return this;
+		}))
+		.pipe(gulp.dest('./dist/'));
+});

@@ -51,9 +51,12 @@ img {
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
   *, *::before, *::after {
     animation-duration: 0.01s !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0s !important;
+    transition: none !important;
+    animation-play-state: paused !important;
     scroll-behavior: auto !important; } }
+
+.content {
+  color: blue; }
 
 .container {
   max-width: 1230px;
@@ -61,18 +64,8 @@ img {
   padding: 0 15px;
   margin: 0 auto; }
 
-body .header {
-  background-color: lightblue; }
-
 .header {
-  color: red; }
-
-section,
-article {
-  height: 100vh; }
-
-section span {
-  color: red; }
-
-article span {
   color: green; }
+
+.footer {
+  color: pink; }
