@@ -5,16 +5,22 @@
 	"background_color": "#ffffff",
 	"theme_color": "#cecece",
 	"display": "standalone",
+	"orientation": "portrait-primary",
 	"icons": [
 		{
-			"src": "img/icons/favicon.jpg",
-			"sizes": "32x32",
-			"type": "image/jpeg"
+			"src": "img/icons/webclip192.png",
+			"sizes": "192x192",
+			"type": "image/png"
 		},
 		{
-			"src": "img/icons/webclip.jpg",
-			"sizes": "192x192",
-			"type": "image/jpeg"
-		}
+			"src": "img/icons/webclip256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		},
+		{
+			"src": "img/icons/webclip512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
 	]
 }

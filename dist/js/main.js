@@ -345,5 +345,3 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 });
 "use strict";
-
-console.log(document.styleSheets);
