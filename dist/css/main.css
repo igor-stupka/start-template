@@ -3,7 +3,7 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-v13-cyrillic_latin-regular.woff2") format("woff2");
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-400.woff2") format("woff2");
   unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 900;
-  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("../fonts/montserrat-v13-cyrillic_latin-900.woff2") format("woff2");
+  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("../fonts/montserrat-900.woff2") format("woff2");
   unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
 
 body, html {
