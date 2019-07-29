@@ -20,6 +20,7 @@ body, html {
   font-size: 16px;
   min-height: 100vh;
   width: 100%;
+  background-color: #fff;
   color: #222; }
 
 body {
@@ -29,6 +30,11 @@ body {
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: nowrap; }
+  body.reduce-motions *, body.reduce-motions *::before, body.reduce-motions *::after {
+    animation-duration: 0.01s !important;
+    transition: none !important;
+    animation-play-state: paused !important;
+    scroll-behavior: auto !important; }
 
 * {
   box-sizing: border-box;
@@ -47,13 +53,6 @@ button {
 
 img {
   max-width: 100%; }
-
-@media screen and (prefers-reduced-motion: reduce), (update: slow) {
-  *, *::before, *::after {
-    animation-duration: 0.01s !important;
-    transition: none !important;
-    animation-play-state: paused !important;
-    scroll-behavior: auto !important; } }
 
 .content {
   color: blue; }

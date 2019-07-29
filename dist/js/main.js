@@ -345,3 +345,33 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 });
 "use strict";
+
+var ReduceMotionsMatches = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var reduceMotionsClass = 'reduce-motions';
+
+var reduceMotions = function reduceMotions() {
+  return document.body.classList.add(reduceMotionsClass);
+};
+
+if (ReduceMotionsMatches) reduceMotions();
+
+if (navigator.getBattery) {
+  navigator.getBattery().then(function (battery) {
+    var currentLevel = Math.round(battery.level * 100);
+
+    if (currentLevel <= 10) {
+      reduceMotions();
+      console.log('Your battery level is ' + currentLevel + '%. We are reduced all motions on page.');
+    }
+  });
+}
+
+var offLineNotification = function offLineHandler() {
+  if (!navigator.onLine) alert('Oh no! Looks like you have not internet connection. The data may be outdated.');
+  return offLineHandler;
+}();
+
+navigator.connection.addEventListener('change', offLineNotification());
+document.body.click(function () {
+  window.navigator.vibrate([100, 30, 100, 30, 100, 200, 200, 30, 200, 30, 200, 200, 100, 30, 100, 30, 100]);
+});

@@ -3,4 +3,4 @@ script.
 	var scr={scripts:[{src:"js/main.min.js",async:!1}]};!function(t,s,n){"use strict";function c(t){if("[object Array]"!==Object.prototype.toString.call(t))return!1;for(var n=0;n<t.length;n++){var c=s.createElement("script"),r=t[n];c.src=r.src,c.async=r.async,s.body.appendChild(c)}return!0}t.addEventListener?t.addEventListener("load",function(){c(n.scripts)},!1):t.attachEvent?t.attachEvent("onload",function(){c(n.scripts)}):t.onload=function(){c(n.scripts)}}(window,document,scr);
 //- load JS by script
 script.
-	if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/sw.js").then(function (registration) {console.log("Service Worker registered with scope:", registration.scope);}).catch(function (err) {console.log("Service worker registration failed:", err);});if(!navigator.onLine){alert('Oh no! Looks like you have not internet connection. The data may be outdated.')}}
+	if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/sw.js").then(function (registration) {console.log("Service Worker registered with scope:", registration.scope);}).catch(function (err) {console.log("Service worker registration failed:", err)})}

@@ -40,7 +40,7 @@ gulp.task('sass', function() {
 		.pipe(sass({outputStyle: 'compressed'}))
 		.pipe(concat('main.min.css'))
 		.pipe(autoprefixer({
-			grid: true,
+			// grid: true,
 			overrideBrowserlist: ['last 10 versions']
 		}))
 		.pipe(cleanCSS())
@@ -222,14 +222,3 @@ function leaveSignature(scope, element) {
 `;
 	scope.querySelector(element).appendChild(scope.createComment(signature))
 }
-
-// GET CLASES MANE FROM CSS
-gulp.task('get-classes', function() {
-	return gulp.src('./dist/css/main.css')
-		.pipe(dom(function() {
-			fillEmptyAttrs(this);
-			leaveSignature(this, 'body');
-			return this;
-		}))
-		.pipe(gulp.dest('./dist/'));
-});
