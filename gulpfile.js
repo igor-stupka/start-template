@@ -155,7 +155,7 @@ gulp.task('selectors', function() {
 });
 
 //CRITICAL-CSS
-gulp.task('critical',  () => {
+gulp.task('critical', async () => {
 	critical.generate({
 		base: 'dist/',
 		src: 'index.html',

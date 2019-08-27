@@ -14,27 +14,25 @@
   src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("../fonts/montserrat-900.woff2") format("woff2");
   unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
 
-body, html {
-  font-family: "Montserrat", "Segoe UI", "Roboto Slab", "Droid Serif", "AvenirNext", "Avenir", "Georgia", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
+body {
+  font: 400 16px "Montserrat", "Segoe UI", "Roboto Slab", "Droid Serif", "AvenirNext", "Avenir", "Georgia", sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
   width: 100%;
   background-color: #fff;
-  color: #222; }
-
-body {
+  color: #222;
   overflow-x: hidden;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  flex-direction: column;
-  flex-wrap: nowrap; }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  body.overflow {
+    overflow-y: hidden; }
   body.reduce-motions *, body.reduce-motions *::before, body.reduce-motions *::after {
-    animation-duration: 0.01s !important;
     transition: none !important;
-    animation-play-state: paused !important;
-    scroll-behavior: auto !important; }
+    animation-play-state: paused !important; }
 
 * {
   box-sizing: border-box;
@@ -48,11 +46,21 @@ body {
   *::before, *::after {
     box-sizing: border-box; }
 
-button {
+button, a {
   cursor: pointer; }
+  button::-moz-focus-inner, a::-moz-focus-inner {
+    border: 0; }
 
 img {
   max-width: 100%; }
+
+@media screen and (min-width: 1024px) {
+  .hidden-on-desktop {
+    display: none; } }
+
+@media screen and (max-width: 1024px) {
+  .hidden-on-mobile {
+    display: none; } }
 
 .content {
   color: blue; }
