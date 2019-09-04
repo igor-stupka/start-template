@@ -6,5 +6,5 @@ $asset-base-path: '..' !default
 @function image($file)
 	@return asset('img', $file)
 
-@function font($file)
-	@return asset('fonts', $file)
+@function font($file, $format)
+	@return asset('fonts', $file + '.' + $format) format($format)

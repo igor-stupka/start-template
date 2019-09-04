@@ -3,7 +3,7 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-400.woff2") format("woff2");
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-400.woff") format("woff");
   unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 900;
-  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("../fonts/montserrat-900.woff2") format("woff2");
+  src: local("Montserrat Black"), local("Montserrat-Black"), url("../fonts/montserrat-900.woff") format("woff");
   unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
 
 body {
@@ -28,11 +28,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-  body.overflow {
-    overflow-y: hidden; }
-  body.reduce-motions *, body.reduce-motions *::before, body.reduce-motions *::after {
-    transition: none !important;
-    animation-play-state: paused !important; }
 
 * {
   box-sizing: border-box;
@@ -54,13 +49,25 @@ button, a {
 img {
   max-width: 100%; }
 
+body.overflow {
+  overflow-y: hidden; }
+
 @media screen and (min-width: 1024px) {
-  .hidden-on-desktop {
-    display: none; } }
+  .dn-on-desktop {
+    display: none !important; } }
 
 @media screen and (max-width: 1024px) {
-  .hidden-on-mobile {
-    display: none; } }
+  .dn-on-mobile {
+    display: none !important; } }
+
+.visually-hidden {
+  clip: rect(1px 1px 1px 1px) !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important; }
 
 .content {
   color: blue; }
@@ -76,3 +83,14 @@ img {
 
 .footer {
   color: brown; }
+
+body.reduce-motions *, body.reduce-motions *::before, body.reduce-motions *::after {
+  transition: none !important;
+  animation-play-state: paused !important; }
+
+@media print {
+  .header,
+  .footer {
+    display: none !important; }
+  a[href]:not([href='']):not([href^='#'])::after {
+    content: " (" attr(href) ")" !important; } }

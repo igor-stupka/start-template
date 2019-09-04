@@ -39,10 +39,7 @@ gulp.task('sass', function() {
 		.pipe(gulp.dest('dist/css'))
 		.pipe(sass({outputStyle: 'compressed'}))
 		.pipe(concat('main.min.css'))
-		.pipe(autoprefixer({
-			// grid: true,
-			overrideBrowserlist: ['last 10 versions']
-		}))
+		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('dist/css'))
 		.pipe(browserSync.stream());

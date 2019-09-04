@@ -1,0 +1,20 @@
+body
+	&.overflow
+		overflow-y: hidden
+
+.dn-on-desktop
+	@media screen and (min-width: $tablet)
+		display: none !important
+
+.dn-on-mobile
+	@media screen and (max-width: $tablet)
+		display: none !important
+
+.visually-hidden 
+	clip: rect(1px 1px 1px 1px) !important
+	clip: rect(1px, 1px, 1px, 1px) !important
+	height: 1px !important
+	overflow: hidden !important
+	position: absolute !important
+	white-space: nowrap !important
+	width: 1px !important
