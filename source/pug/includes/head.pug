@@ -2,22 +2,21 @@ title #{name} - #{(title ? title : "Page")}
 
 meta(charset='UTF-8')
 meta(name='keywords', content='')
-meta(name='description', content='')
+meta(name='description', content=descr)
 meta(name='viewport', content='width=device-width, initial-scale=1.0')
 meta(http-equiv='X-UA-Compatible', content='ie=edge')
 
-meta(property='og:title', content='')
+meta(property='og:title', content=name)
 meta(property='og:type', content='website')
-meta(property='og:description', content='')
+meta(property='og:description', content=descr)
 meta(property='og:url', content='')
 meta(property='og:image', content='')
 
-meta(name="theme-color", content="#cecece")
-meta(name="msapplication-navbutton-color", content="#cecece")
-meta(name="apple-mobile-web-app-status-bar-style", content="#cecece")
+meta(name="theme-color", content=theme)
+meta(name="msapplication-navbutton-color", content=theme)
 	
 link(rel='icon', type='image/png', sizes='256x256', href='img/icons/webclip256.png')
 
-link(rel="manifest", href="/m.webmanifest")
+link(rel="manifest", href="/manifest.json")
 
 include styles

@@ -1,10 +1,12 @@
 {
-  "name": "StartTemplate",
+  "name": "awesome-start-template",
+  "description": "Lightweight and optimized startup HTML5 template, based on Gulp.",
   "version": "1.0.0",
-  "description": "Start Template",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint source/ --ext .js --ignore-pattern source/js/lazy.js",
+    "lint:fix": "npm run lint -- --fix"
   },
   "author": "igor-stupka",
   "license": "ISC",
@@ -18,22 +20,22 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^3.4.0",
     "gulp-pug": "^4.0.1",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-selectors": "^0.1.10",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^2.0.0",
     "gulp-uglify-es": "^1.0.4",
-    "imagemin-mozjpeg": "^8.0.0",
-    "imagemin-pngquant": "^8.0.0",
     "node-sass": "^4.12.0"
   },
   "dependencies": {
     "critical": "^1.3.4",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "gulp-cache": "^1.1.2",
     "gulp-dom": "^1.0.0",
-    "gulp-htmlmin": "^5.0.1",
-    "imagemin-zopfli": "^6.0.0"
+    "gulp-htmlmin": "^5.0.1"
   }
 }

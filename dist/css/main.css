@@ -64,10 +64,11 @@ body.overflow {
   clip: rect(1px 1px 1px 1px) !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   height: 1px !important;
+  width: 1px !important;
+  opacity: 0 !important;
   overflow: hidden !important;
   position: absolute !important;
-  white-space: nowrap !important;
-  width: 1px !important; }
+  white-space: nowrap !important; }
 
 .content {
   color: blue; }
@@ -92,5 +93,5 @@ body.reduce-motions *, body.reduce-motions *::before, body.reduce-motions *::aft
   .header,
   .footer {
     display: none !important; }
-  a[href]:not([href='']):not([href^='#'])::after {
+  a[href^='http']::after {
     content: " (" attr(href) ")" !important; } }

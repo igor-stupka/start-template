@@ -8,6 +8,6 @@ body
 	.header,
 	.footer
 		display: none !important
-	a[href]:not([href='']):not([href^='#'])
+	a[href^='http']
 		&::after
 			content: " (" attr(href) ")" !important

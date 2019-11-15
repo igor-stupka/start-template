@@ -1,10 +1,12 @@
 {
-	"name": "NewProject",
-	"short_name": "New",
+	"name": "Awesome Start Template",
+	"short_name": "Template",
+	"decsription": "Lightweight and optimized startup HTML5 template, based on Gulp.",
 	"start_url": "/",
+	"lang": "ru",
 	"background_color": "#ffffff",
 	"theme_color": "#cecece",
-	"display": "standalone",
+	"display": "standalone", 
 	"orientation": "portrait-primary",
 	"icons": [
 		{
